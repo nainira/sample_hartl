@@ -1,0 +1,28 @@
+$ gem install rails --version 4.0.5
+$ rails new hartl_rails4
+$ touch .ruby-version
+> Gemfile
+$ bundle install --without production
+$ bundle update
+$ bundle install
+
+$ git init
+> .gitignore
+> .gemrc
+> .railsrc
+$ gh-create
+$ ga .
+$ gc -m "Initial commit"
+$ curl get.pow.cx | sh
+$ gem install powder
+$ powder link
+$ rails g scaffod User name:strong email:strong
+$ bundle exec rake db:migrate
+$ rails g scaffold Micropost content:string user_id:integer
+$ bundle exec rake db:migrate
+$ git push
+$ heroku create
+$ git push heroku master
+$ heroku run rake db:migrate
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            4
