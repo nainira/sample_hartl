@@ -1,5 +1,5 @@
 $ gem install rails --version 4.0.5
-$ rails new hartl_rails4
+$ rails new sample_hartl
 $ touch .ruby-version
 > Gemfile
 $ bundle install --without production
@@ -16,10 +16,6 @@ $ gc -m "Initial commit"
 $ curl get.pow.cx | sh
 $ gem install powder
 $ powder link
-$ rails g scaffod User name:strong email:strong
-$ bundle exec rake db:migrate
-$ rails g scaffold Micropost content:string user_id:integer
-$ bundle exec rake db:migrate
 $ git push
 $ heroku create
 $ git push heroku master
