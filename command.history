@@ -1,3 +1,5 @@
+3. Mostly Static pages
+
 $ gem install rails --version 4.0.5
 $ rails new sample_hartl
 $ touch .ruby-version
@@ -34,6 +36,19 @@ $ rails g integration_test
 > hom.html.erb
 $ bundle exec rspec spec/requests/static_pages_spec.rb
 > application.html.erb
+> home,help,about.html.erb
+$ ga .
+$ gc -m "Finish static pages"
+$ git checkout master
+$ git merge static-pages
+$ git push
+
+3.5 excersies
+ex3.
+>Gemfile
+$bundle install && bundle update
+>database.yml
+
 
 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             4
