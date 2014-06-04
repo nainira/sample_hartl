@@ -54,7 +54,11 @@ $bundle install && bundle update
 $ bundle install --binstubs=./bundler_stubs
 
 3.6.2 Automated tests with Guard
-> Gemfile
+> Gemfile # add some gems for guard
+$ bundle exec guard init rspec
+> Guardfile
+$ bundle exec guard
+
 
 
 
