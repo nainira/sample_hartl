@@ -59,6 +59,15 @@ $ bundle exec guard init rspec
 > Guardfile
 $ bundle exec guard
 
+3.6.3 Spork
+> gemfile
+$ bundle install
+$ bundle exec spork --bootstrap
+> spec_helper
+$ time bundle exec rspec spec/requests/static_pages_spec.rb
+$ bundle exec spork
+$ time bundle exec rspec spec/requests/static_pages_spec.rb --drb
+> .rspec
 
 
 
