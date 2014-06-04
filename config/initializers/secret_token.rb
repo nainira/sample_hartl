@@ -19,7 +19,7 @@ def secure_token
 		File.read(token_file).chomp
 	else
 		token = SecureRandom.hex(64)
-		File.wirte(token_file, token)
+		File.write(token_file, token)
 		token
 	end
 end
