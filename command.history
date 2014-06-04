@@ -68,6 +68,9 @@ $ time bundle exec rspec spec/requests/static_pages_spec.rb
 $ bundle exec spork
 $ time bundle exec rspec spec/requests/static_pages_spec.rb --drb
 > .rspec
+# Guard with Spork
+$ bundle exec guard init spork
+> Guardfile
 
 
 
