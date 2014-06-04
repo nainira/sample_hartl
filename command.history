@@ -5,6 +5,7 @@ $ touch .ruby-version
 $ bundle install --without production
 $ bundle update
 $ bundle install
+$ rails g rspec:install
 
 $ git init
 > .gitignore
@@ -20,5 +21,19 @@ $ git push
 $ heroku create
 $ git push heroku master
 $ heroku run rake db:migrate
+
+$ git checkout -b static-pages
+$ rails g controller StaticPages home help --no-teset-framework
+> home.html.erb
+> help.html.erb
+$ ga .
+$ gc -m "Add a StaticPages controller"
+$ rails g integration_test
+> static_pages_spec.rb
+> spec_helper.rb
+> hom.html.erb
+$ bundle exec rspec spec/requests/static_pages_spec.rb
+> application.html.erb
+
 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             4
