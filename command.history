@@ -49,6 +49,13 @@ ex3.
 $bundle install && bundle update
 >database.yml
 
+3.6 Advanced setup
+3.6.1
+$ bundle install --binstubs=./bundler_stubs
+
+3.6.2 Automated tests with Guard
+> Gemfile
 
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            4
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            3.
