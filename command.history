@@ -77,4 +77,10 @@ $ bundle exec guard init spork
 $bundle install
 >Guard
 
+# static pages
+
+# 5.4 User Signup
+$ rails g controller Users new --no-test-framework
+$ rails g integration_test user_pages
+
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             3.
