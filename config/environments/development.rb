@@ -27,5 +27,7 @@ SampleHartl::Application.configure do
   # number of complex assets.
   config.assets.debug = true
   # Automatically inject JavaScript needed for LiveReload
-  config.middleware.insert_after(ActionDispatch::Static, Rack::LiveReload)
+  config.middleware.insert_after(
+    ActionDispatch::Static, Rack::LiveReload, :min_delay => 500, :max_delay=> 3000
+    )
 end

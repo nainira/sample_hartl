@@ -72,6 +72,9 @@ $ time bundle exec rspec spec/requests/static_pages_spec.rb --drb
 $ bundle exec guard init spork
 > Guardfile
 
-
+# Guard with livereload
+>Gemfile
+$bundle install
+>Guard
 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             3.
