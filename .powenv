@@ -19,3 +19,5 @@ then
 else
   echo "RVM project not found at: $PWD"
 fi
+
+export RAILS_ENV=development
