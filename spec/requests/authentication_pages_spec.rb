@@ -12,10 +12,12 @@ describe "AuthenticationPages" do
       let(:user) { FactoryGirl.create(:user) } 
       before do
         visit signin_path
-        valid_signin(user)
+        # valid_signin(user)
+        sign_in user
       end
       it { should have_title(user.name) }
       it { should have_link("Profile", href: user_path(user)) } 
+      it { should have_link('Settings', href: edit_user_path(user)) } 
       it { should have_link("Sign out", href: signout_path) } 
       it { should_not have_link("Sign in", href: signin_path) } 
       describe 'followed by a signout' do
