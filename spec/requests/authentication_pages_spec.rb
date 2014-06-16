@@ -40,4 +40,23 @@ describe "AuthenticationPages" do
 
   end  # Signin 
 
+  describe 'authorization' do
+    describe 'for non-signed-in users' do
+      let(:user) { FactoryGirl.create(:user) } 
+
+      describe 'in the Users controller' do
+        
+        describe 'visiting the edit page' do
+          before { visit edit_user_path(user) }
+          it { should have_title('Sign in') }
+        end # authorization for non-signed-in users in the Users controller visiting the edit page
+
+        describe 'submitting to the update action' do
+          before { patch user_path(user) }
+          specify { expect(response).to redirect_to(signin_path) } 
+        end # authorization submitting to update action
+      end # authorization for non-signed-in users in the Users controller
+    end # authorization for nono-signed-in users
+  end # authorization 
+
 end
