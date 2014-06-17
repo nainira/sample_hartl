@@ -7,6 +7,7 @@ gem 'pg', '0.15.1'
 gem 'bootstrap-sass', '2.3.2.0'
 gem 'sprockets', '2.11.0'
 gem 'bcrypt-ruby', '3.1.2'
+gem 'faker', '~> 1.3.0'
 
 group :development, :test do
 #	gem 'sqlite3', '1.3.8'
