@@ -24,9 +24,7 @@ describe User do
       @user.toggle!(:admin)
     end
 
-    it "should be_admin" do
-      
-    end
+    it { should be_admin }
   end
 
   # Name test
