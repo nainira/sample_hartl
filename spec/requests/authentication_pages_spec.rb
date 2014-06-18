@@ -11,11 +11,11 @@ describe "AuthenticationPages" do
     describe 'with valid information' do
       let(:user) { FactoryGirl.create(:user) } 
       before do
-        visit signin_path
         # valid_signin(user)
         sign_in user
       end
       it { should have_title(user.name) }
+      it { should have_link('Users', href: users_path) } 
       it { should have_link("Profile", href: user_path(user)) } 
       it { should have_link('Settings', href: edit_user_path(user)) } 
       it { should have_link("Sign out", href: signout_path) } 
@@ -50,6 +50,11 @@ describe "AuthenticationPages" do
           before { visit edit_user_path(user) }
           it { should have_title('Sign in') }
         end # authorization for non-signed-in users in the Users controller visiting the edit page
+
+        describe 'visiting the user index' do
+          before { visit users_path }
+          it { should have_title('Sign in') }
+        end
 
         describe 'submitting to the update action' do
           before { patch user_path(user) }
@@ -88,6 +93,18 @@ describe "AuthenticationPages" do
         specify { expect(response).to redirect_to(root_url) }
       end # authorization as wrong user submitting a PATCH request
     end # authorization as wrong user
+
+    describe 'as non-admin user' do
+      let(:user) { FactoryGirl.create(:user) }
+      let(:non_admin) { FactoryGirl.create(:user) }
+
+      before { sign_in non_admin, no_capybara: true }
+
+      describe 'submtting a DELETE request to the Users#destroy action' do
+        before { delete user_path(user) }
+        specify { expect(response).to redirect_to(root_url) }
+      end # authorization as non-admin user submtting a DELETE request
+    end # authorization as non-admin user
   end # authorization 
 
 end
