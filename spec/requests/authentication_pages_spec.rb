@@ -63,6 +63,20 @@ describe "AuthenticationPages" do
           specify { expect(response).to redirect_to(signin_path) } 
         end # authorization submitting to update action
       end # authorization for non-signed-in users in the Users controller
+
+      describe 'in the Microposts controller' do
+
+        describe 'submitting to the create action' do
+          before { post microposts_path }
+          specify { expect(response).to redirect_to(signin_path) }
+        end # submitting to create action
+
+        describe 'submitting to the destroy aciton' do
+          before { delete micropost_path(FactoryGirl.create("micropost")) }
+          specify { expect(response).to redirect_to(signin_path) }
+        end # submtting to destroy aciton
+      end # authorization for onon-signed-in usrs in the Microposts controller
+
       describe 'when attempting to visit a protected page' do
         before do
           visit edit_user_path(user)
