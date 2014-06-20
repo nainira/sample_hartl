@@ -30,7 +30,9 @@ describe "AuthenticationPages" do
     describe 'with invalid information' do
       before { click_button 'Sign in' }
 
-      it { should have_title('Sign in') }      
+      it { should have_title('Sign in') }  
+      it { should_not have_link('Profile') }    
+      it { should_not have_link('Settigns') }
       it { should have_error_message('Invalid') }
       describe 'after visiting another page' do
         before { click_link "Home" }
@@ -61,6 +63,20 @@ describe "AuthenticationPages" do
           specify { expect(response).to redirect_to(signin_path) } 
         end # authorization submitting to update action
       end # authorization for non-signed-in users in the Users controller
+
+      describe 'in the Microposts controller' do
+
+        describe 'submitting to the create action' do
+          before { post microposts_path }
+          specify { expect(response).to redirect_to(signin_path) }
+        end # submitting to create action
+
+        describe 'submitting to the destroy aciton' do
+          before { delete micropost_path(FactoryGirl.create("micropost")) }
+          specify { expect(response).to redirect_to(signin_path) }
+        end # submtting to destroy aciton
+      end # authorization for onon-signed-in usrs in the Microposts controller
+
       describe 'when attempting to visit a protected page' do
         before do
           visit edit_user_path(user)
@@ -105,6 +121,18 @@ describe "AuthenticationPages" do
         specify { expect(response).to redirect_to(root_url) }
       end # authorization as non-admin user submtting a DELETE request
     end # authorization as non-admin user
+    describe 'as admin user' do
+      let(:admin) { FactoryGirl.create(:admin) }
+      before do
+        sign_in admin, no_capybara: true
+      end
+      it "should_not be able to delete admin himself" do
+          expect do
+            delete user_path(admin.id)
+          end.not_to change(User, :count).by(-1)
+      end
+    end # authorization as admin
+
   end # authorization 
 
 end
