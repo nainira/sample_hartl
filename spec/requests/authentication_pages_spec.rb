@@ -86,6 +86,18 @@ describe "AuthenticationPages" do
           specify { expect(response).to redirect_to(signin_path) }
         end # submtting to destroy aciton
       end # authorization for onon-signed-in usrs in the Microposts controller
+      
+      describe 'in the Relationships controller' do
+        describe 'submitting to the create action' do
+          before { post relationships_path }
+          specify { expect(response).to redirect_to(signin_path) }
+        end
+
+        describe 'submitting to the destroy actoin' do
+          before { delete relationship_path(1) }
+          specify { expect(response).to redirect_to(signin_path) }
+        end
+      end # in the Relationships controller
 
       describe 'when attempting to visit a protected page' do
         before do
